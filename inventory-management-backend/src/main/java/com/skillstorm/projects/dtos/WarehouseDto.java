@@ -7,16 +7,18 @@ public class WarehouseDto {
 	private long id;
 	private String name;
 	private int maxCapacity;
+	private int currentCapacity;
 	
 	public WarehouseDto() {
 		super();
 	}
 
-	public WarehouseDto(long id, String name, int maxCapacity) {
+	public WarehouseDto(long id, String name, int maxCapacity, int currentCapacity) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.maxCapacity = maxCapacity;
+		this.currentCapacity = currentCapacity;
 
 	}
 
@@ -42,6 +44,16 @@ public class WarehouseDto {
 
 	public void setMaxCapacity(int maxCapacity) {
 		this.maxCapacity = maxCapacity;
+	}
+
+	
+	
+	public int getCurrentCapacity() {
+		return currentCapacity;
+	}
+
+	public void setCurrentCapacity(int currentCapacity) {
+		this.currentCapacity = currentCapacity;
 	}
 
 	@Override

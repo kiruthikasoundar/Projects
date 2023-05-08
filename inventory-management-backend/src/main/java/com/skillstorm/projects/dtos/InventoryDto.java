@@ -8,24 +8,26 @@ public class InventoryDto {
     private long productId;
     private long warehouseId;
     private int quantity;
+    private String productName;
 	
     public InventoryDto() {
 		super();
 	}
 
-	public InventoryDto(long id, long productId, long warehouseId, int quantity) {
+	public InventoryDto(long id, long productId, long warehouseId, int quantity, String productName) {
 		super();
 		this.id = id;
 		this.productId = productId;
 		this.warehouseId = warehouseId;
 		this.quantity = quantity;
+		this.productName = productName;
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -35,6 +37,14 @@ public class InventoryDto {
 
 	public void setProductId(long productId) {
 		this.productId = productId;
+	}
+	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public Long getWarehouseId() {
@@ -73,10 +83,8 @@ public class InventoryDto {
 	@Override
 	public String toString() {
 		return "InventoryDto [id=" + id + ", productId=" + productId + ", warehouseId=" + warehouseId + ", quantity="
-				+ quantity + "]";
+				+ quantity + ", productName=" + productName + "]";
 	}
     
-	
-	
-    
+	  
 }

@@ -2,6 +2,7 @@ package com.skillstorm.projects.models;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Product {
     @Column(name = "product_price")
     private long price;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 

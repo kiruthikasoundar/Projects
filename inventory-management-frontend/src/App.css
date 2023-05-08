@@ -1,0 +1,100 @@
+h2 {
+  text-align: center;
+}
+/* Table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+thead th {
+  background-color: #1E90FF;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+tbody td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Button styles */
+button {
+  border: none;
+  background-color: #1E90FF;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: #007acc;
+}
+
+
+/* Input styles */
+input {
+  border: 1px solid #ddd;
+  padding: 5px;
+  width: 100%;
+  max-width: 150px;
+}
+
+/* .MuiButton-root {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 4px;
+  padding: 6px 16px;
+  margin: 8px;
+  text-transform: uppercase;
+} */
+
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
+
+.submitButton {
+  margin-top: 20px !important;
+  background-color: green !important;
+  color: white !important;
+}
+
+.formContainer {
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 600px;
+}
+
+.button {
+  margin-left: 5px !important;
+  background-color:#1E90FF !important;
+  margin-bottom: 5px !important;
+  color: white !important;
+}
+
+.red {
+  font-weight: bolder;
+  color: red;
+}
+

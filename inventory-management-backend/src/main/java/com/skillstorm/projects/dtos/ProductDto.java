@@ -2,8 +2,6 @@ package com.skillstorm.projects.dtos;
 
 import java.util.Objects;
 
-import com.skillstorm.projects.models.Category;
-
 public class ProductDto {
 
 	private long id;

@@ -61,6 +61,11 @@ public class Category {
 		this.description = description;
 	}
 	
+	/**
+
+	Converts the Category object to a CategoryDto object.
+	@return The CategoryDto object.
+	*/
 	public CategoryDto toDto() {
 		return new CategoryDto(id, name, description);
 	}

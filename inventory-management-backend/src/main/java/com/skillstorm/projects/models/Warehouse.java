@@ -24,17 +24,37 @@ public class Warehouse {
 
     @Column(name = "max_capacity")
     private int maxCapacity;
+    
+    @Column(name = "current_capacity")
+    private int currentCapacity;
 
   
 	public Warehouse() {
 		super();
 	}
 
-	public Warehouse(long id, String name, int maxCapacity) {
+//	public Warehouse(long id, String name, int maxCapacity) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.maxCapacity = maxCapacity;
+//	}
+	
+	public Warehouse(long id, String name, int maxCapacity, int currentCapacity) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.maxCapacity = maxCapacity;
+		this.currentCapacity = currentCapacity;
+	}
+	
+
+	public int getCurrentCapacity() {
+		return currentCapacity;
+	}
+
+	public void setCurrentCapacity(int currentCapacity) {
+		this.currentCapacity = currentCapacity;
 	}
 
 	public long getId() {
@@ -62,7 +82,7 @@ public class Warehouse {
 	}
 
 	public WarehouseDto toDto() {
-		return new WarehouseDto(id, name, maxCapacity);
+		return new WarehouseDto(id, name, maxCapacity, currentCapacity);
 		
 	}
 	
