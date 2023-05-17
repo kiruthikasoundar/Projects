@@ -45,7 +45,7 @@ public class Reservation {
     @Positive(message = "Number of guests must be positive")
     private int numberOfGuests;
 
-    @Column(name = "special_requests", length = 1000)
+    @Column(name = "specialrequests", length = 1000)
     private String specialRequests;
 
     /**
@@ -56,6 +56,8 @@ public class Reservation {
     public ReservationDto toDto() {
         return new ReservationDto(id, guest, room, checkInDate, checkOutDate, numberOfGuests, specialRequests);
     }
+    
+    public Reservation() {}
     
     public Reservation(Long id, Guest guest, Room room, LocalDate checkInDate, LocalDate checkOutDate, int numberOfGuests, String specialRequests) {
         this.id = id;

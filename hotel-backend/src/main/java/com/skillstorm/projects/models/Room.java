@@ -38,6 +38,10 @@ public class Room {
     @Column(name = "nightlyrate")
     private BigDecimal nightlyRate;
     
+    public Room() {
+		super();
+	} 
+    
     /**
      * Creates a new Room object.
      *
@@ -55,6 +59,40 @@ public class Room {
     public RoomDto toDto() {
     	return new RoomDto(id, roomType, roomNumber, nightlyRate);
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public RoomType getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
+	}
+
+	public String getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(String roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+
+	public BigDecimal getNightlyRate() {
+		return nightlyRate;
+	}
+
+	public void setNightlyRate(BigDecimal nightlyRate) {
+		this.nightlyRate = nightlyRate;
+	}
+    
+    
     
 }
 

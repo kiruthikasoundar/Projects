@@ -21,8 +21,8 @@ public class RoomDto {
 
     private Long id;
 
-    @Positive
-    private RoomType roomTypeId;
+//    @Positive
+//    private RoomType roomTypeId;
 
     @NotBlank
     @Size(max = 10)
@@ -42,9 +42,9 @@ public class RoomDto {
      * @param roomNumber   the room number
      * @param nightlyRate  the nightly rate
      */
-    public RoomDto(Long id, RoomType roomTypeId, String roomNumber, BigDecimal nightlyRate) {
+    public RoomDto(Long id, RoomType roomType, String roomNumber, BigDecimal nightlyRate) {
     	this.id = id;
-        this.roomTypeId = roomTypeId;
+        this.roomType = roomType;
         this.roomNumber = roomNumber;
         this.nightlyRate = nightlyRate;
     }
@@ -57,13 +57,13 @@ public class RoomDto {
 		this.id = id;
 	}
 
-	public RoomType getRoomTypeId() {
-		return roomTypeId;
-	}
-
-	public void setRoomTypeId(RoomType roomTypeId) {
-		this.roomTypeId = roomTypeId;
-	}
+//	public RoomType getRoomTypeId() {
+//		return roomTypeId;
+//	}
+//
+//	public void setRoomTypeId(RoomType roomTypeId) {
+//		this.roomTypeId = roomTypeId;
+//	}
 
 	public String getRoomNumber() {
 		return roomNumber;

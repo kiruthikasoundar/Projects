@@ -52,6 +52,8 @@ public class Guest {
     	return new GuestDto(id, name, email, phoneNumber, address);
     }
 
+    public Guest() {}
+    
 	public Guest(Long id, @NotBlank @Size(max = 50) String name, @NotBlank @Email @Size(max = 255) String email,
 			@NotBlank @Size(max = 20) String phoneNumber, @NotBlank @Size(max = 255) String address) {
 		super();
