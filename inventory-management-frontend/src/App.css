@@ -98,3 +98,6 @@ input {
   color: red;
 }
 
+.MuiSelect-select.MuiSelect-select {
+  padding-right: 240px !important;
+}
