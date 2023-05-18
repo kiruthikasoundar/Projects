@@ -28,7 +28,13 @@ public class ReservationService {
 	
 	@Autowired
     private RoomRepository roomRepository;
+	
+	private final EmailService emailService;
 
+	public ReservationService(EmailService emailService) {
+        this.emailService = emailService;
+    }
+	
     public ReservationDto createReservation(ReservationDto reservationData) {
         Guest guest = guestRepository.findById(reservationData.getGuestId())
                 .orElseThrow();
@@ -46,8 +52,16 @@ public class ReservationService {
         );
 
         Reservation savedReservation = reservationRepository.save(reservation);
+        
+        // Send email confirmation
+        String recipientEmail = guest.getEmail();
+        String subject = "Reservation Confirmation";
+        String content = "Dear " + guest.getName() + ", your reservation has been confirmed.";
+        emailService.sendEmailConfirmation(recipientEmail, subject, content);
+
         return savedReservation.toDto();
     }
+    
     public List<ReservationDto> getAllReservations() {
         return reservationRepository.findAll()
                 .stream()
