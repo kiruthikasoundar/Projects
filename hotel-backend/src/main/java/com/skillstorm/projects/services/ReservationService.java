@@ -92,6 +92,13 @@ public class ReservationService {
         reservation.setSpecialRequests(reservationData.getSpecialRequests());
 
         Reservation updatedReservation = reservationRepository.save(reservation);
+        
+     // Send update confirmation
+        String recipientEmail = guest.getEmail();
+        String subject = "Reservation Updated";
+        String content = "Dear " + guest.getName() + ", your reservation has been updated.";
+        emailService.sendEmailConfirmation(recipientEmail, subject, content);
+        
         return updatedReservation.toDto();
     }
 
