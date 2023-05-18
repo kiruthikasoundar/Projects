@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/reservations")
 @CrossOrigin
@@ -18,7 +20,7 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @PostMapping
-    public ResponseEntity<ReservationDto> createReservation(@RequestBody ReservationDto reservationDto) {
+    public ResponseEntity<ReservationDto> createReservation(@RequestBody @Valid ReservationDto reservationDto) {
         ReservationDto createdReservation = reservationService.createReservation(reservationDto);
         return new ResponseEntity<>(createdReservation,HttpStatus.CREATED);
     }
@@ -34,7 +36,7 @@ public class ReservationController {
     }
 
     @PutMapping("/{id}")
-    public ReservationDto updateReservation(@PathVariable Long id,@RequestBody ReservationDto reservationDto) {
+    public ReservationDto updateReservation(@PathVariable Long id,@RequestBody @Valid ReservationDto reservationDto) {
     	return reservationService.updateReservation(id, reservationDto);
     }
 

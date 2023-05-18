@@ -5,8 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 import com.skillstorm.projects.dtos.ReservationDto;
 
 import java.time.LocalDate;
@@ -24,28 +28,32 @@ public class Reservation {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "guest_id", nullable = false)
+    @JoinColumn(name = "guest_id")
     @NotNull(message = "Guest is required")
     private Guest guest;
 
     @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false)
+    @JoinColumn(name = "room_id")
     @NotNull(message = "Room is required")
     private Room room;
 
-    @Column(name = "checkindate", nullable = false)
+    @Column(name = "checkindate")
     @NotNull(message = "Check-in date is required")
+    @FutureOrPresent(message = "Check-in date must be in the present or future")
     private LocalDate checkInDate;
 
-    @Column(name = "checkoutdate", nullable = false)
+    @Column(name = "checkoutdate")
     @NotNull(message = "Check-out date is required")
+    @Future(message = "Check-out date must be in the future")
     private LocalDate checkOutDate;
 
-    @Column(name = "numberofguests", nullable = false)
-    @Positive(message = "Number of guests must be positive")
+    @Column(name = "numberofguests")
+    @NotNull(message = "Number of guests is required")
+    @Min(value = 1, message = "Number of guests must be at least 1")
     private int numberOfGuests;
 
     @Column(name = "specialrequests", length = 1000)
+    @Size(max = 1000, message = "Special requests must not exceed 1000 characters")
     private String specialRequests;
 
     /**

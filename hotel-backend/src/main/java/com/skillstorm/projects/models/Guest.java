@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private Long id;
     
     @NotBlank
@@ -35,12 +35,12 @@ public class Guest {
     @NotBlank
     @Email
     @Size(max = 255)
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @NotBlank
     @Size(max = 20)
-    @Column(name = "phonenumber")
+    @Column(name = "phonenumber", unique = true)
     private String phoneNumber;
 
     @NotBlank

@@ -21,6 +21,15 @@ public class GuestService {
     private GuestRepository guestRepository;
 
     public GuestDto createGuest(GuestDto guestData) {
+    	// Checks if the email is already used
+        if (guestRepository.existsByEmail(guestData.getEmail())) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+
+        // Checks if the phone number is already used
+        if (guestRepository.existsByPhoneNumber(guestData.getPhoneNumber())) {
+            throw new IllegalArgumentException("Phone number already exists");
+        }
         Guest guest = new Guest(guestData.getId(), guestData.getName(), guestData.getEmail(), guestData.getPhoneNumber(), guestData.getAddress());
         return guestRepository.save(guest).toDto();
     }

@@ -32,15 +32,15 @@ public class GuestDto {
     /**
      * The email address of the guest.
      */
-	@NotBlank
-    @Email
+	@NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
     @Size(max = 255)
     private String email;
 
     /**
      * The phone number of the guest.
      */
-	@NotBlank
+	@NotBlank(message = "Phone number is required")
     @Size(max = 20)
     private String phoneNumber;
 

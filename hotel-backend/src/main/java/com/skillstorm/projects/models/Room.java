@@ -20,21 +20,21 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Room type is required")
     @ManyToOne
     @JoinColumn(name = "roomtype_id")
     private RoomType roomType;
 
-    @NotBlank
+    @NotBlank(message = "Room number is required")
     @Size(max = 10)
-    @Column(name = "roomnumber", unique = true)
+    @Column(name = "roomnumber", unique = true)	
     private String roomNumber;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Nightly rate is required")
+    @Positive(message = "Nightly rate must be positive")
     @Column(name = "nightlyrate")
     private BigDecimal nightlyRate;
     

@@ -65,8 +65,9 @@ public class GuestController {
      * @param guestDto the updated guest data
      */
     @PutMapping("/{id}")
-    public void updateGuest(@PathVariable Long id, @RequestBody @Valid GuestDto guestDto) {
-        guestService.updateGuest(id, guestDto);
+    public ResponseEntity<GuestDto> updateGuest(@PathVariable Long id, @RequestBody @Valid GuestDto guestDto) {
+    	GuestDto updatedGuest = guestService.updateGuest(id, guestDto);
+    	return ResponseEntity.ok(updatedGuest);
     }
 
     /**

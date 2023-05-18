@@ -10,6 +10,7 @@ import com.skillstorm.projects.models.RoomType;
 import com.skillstorm.projects.repositories.RoomTypeRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -63,9 +64,26 @@ public class RoomTypeService {
      * @return The updated room type.
      */
     public RoomTypeDto updateRoomType(Long id, @Valid RoomTypeDto roomTypeData) {
-    	RoomType roomType = new RoomType(roomTypeData.getId(), roomTypeData.getName(), roomTypeData.getDescription(), roomTypeData.getMaxOccupancy());
-        return roomTypeRepository.save(roomType).toDto();
+        // Retrieve the existing RoomType entity from the database
+        Optional<RoomType> optionalRoomType = roomTypeRepository.findById(id);
+        if (optionalRoomType.isPresent()) {
+            RoomType roomType = optionalRoomType.get();
+
+            // Update the properties of the existing RoomType with the data from the DTO
+            roomType.setName(roomTypeData.getName());
+            roomType.setDescription(roomTypeData.getDescription());
+            roomType.setMaxOccupancy(roomTypeData.getMaxOccupancy());
+
+            // Save the updated RoomType entity
+            RoomType updatedRoomType = roomTypeRepository.save(roomType);
+
+            // Convert the updated RoomType entity to a DTO and return it
+            return updatedRoomType.toDto();
+        } else {
+            throw new IllegalArgumentException("RoomType not found");
+        }
     }
+
 
     /**
      * Deletes a room type by ID.

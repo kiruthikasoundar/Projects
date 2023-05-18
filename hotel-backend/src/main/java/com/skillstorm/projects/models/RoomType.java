@@ -21,7 +21,7 @@ public class RoomType {
     @Column(name = "id")
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
     @Size(max = 50)
     @Column(name = "name")
     private String name;
@@ -30,8 +30,8 @@ public class RoomType {
     @Column(name = "description")
     private String description;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Max occupancy is required")
+    @Positive(message = "Max occupancy must be a positive value")
     @Column(name = "maxoccupancy")
     private Integer maxOccupancy;
 

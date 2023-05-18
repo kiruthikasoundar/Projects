@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skillstorm.projects.models.Guest;
 import com.skillstorm.projects.models.Room;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,11 @@ import lombok.NoArgsConstructor;
 public class ReservationDto {
 
     private Long id;
+    
+    @JsonIgnore
     private Long guestId; 
+    
+    @JsonIgnore
     private Long roomId;
     
     @NotNull
@@ -52,9 +57,11 @@ public class ReservationDto {
      * @param numberOfGuests  The number of guests for the reservation.
      * @param specialRequests The special requests for the reservation.
      */
-    public ReservationDto(Long id, Guest guest, Room room, LocalDate checkInDate, LocalDate checkOutDate,
+    public ReservationDto(Long id,Guest guest, Room room, LocalDate checkInDate, LocalDate checkOutDate,
         int numberOfGuests, String specialRequests) {
         this.id = id;
+        this.guestId = guest.getId();
+        this.roomId = room.getId();
         this.guest = guest;
         this.room = room;
         this.checkInDate = checkInDate;
@@ -134,9 +141,6 @@ public class ReservationDto {
 	public void setRoomId(Long roomId) {
 		this.roomId = roomId;
 	}
-
-    
-
     
 }
 
