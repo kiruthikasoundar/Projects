@@ -1,7 +1,7 @@
 # Projects
 Repository for Skillstorm project Codes
 
-API Endpoints:
+# API Endpoints:
 
 | Endpoint | Function |
 |----------|----------|
