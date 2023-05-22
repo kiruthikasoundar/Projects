@@ -2,10 +2,11 @@
 Repository for Skillstorm project Codes
 
 | Endpoint | Function |
+|----------|----------|
 | GET /guests |	finds all guests |
 | GET /guests/{id} | finds guest by {id} |
-| POST /guests	creates new guest entry and returns it |
-| PUT /guests/{id}	updates the guest entry for the {id} and returns it |
+| POST /guests	| creates new guest entry and returns it |
+| PUT /guests/{id} |	updates the guest entry for the {id} and returns it |
 | DELETE /guests/{id}	deletes guest with {id} |
 | GET /roomtypes	finds all room types |
 | GET /roomtypes/{id}	finds room type by {id}
