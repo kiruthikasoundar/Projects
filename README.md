@@ -1,6 +1,8 @@
 # Projects
 Repository for Skillstorm project Codes
 
+API Endpoints:
+
 | Endpoint | Function |
 |----------|----------|
 | GET /guests |	finds all guests |
